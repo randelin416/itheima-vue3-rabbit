@@ -1,3 +1,4 @@
+// 僅作路徑提示 轉換在vite.config.js中處理
 {
   "compilerOptions": {
     "baseUrl": "./",
