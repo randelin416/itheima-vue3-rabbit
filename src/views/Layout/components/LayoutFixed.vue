@@ -2,7 +2,26 @@
 // vueUse
 import { useScroll } from '@vueuse/core'
 
+import { useCategoryStore } from '@/stores/category'
+
+// import { ref, onMounted } from 'vue'
+// import { getCategoryAPI } from '@/apis/layout'
+
+// const categoryList = ref([])
+// const getCategory = async () => {
+//     const res = await getCategoryAPI()
+//     console.log(res)
+//     categoryList.value = res.result
+// }
+
+// onMounted(() => {
+//    getCategory() 
+// })
+
 const { y } = useScroll(window)
+
+// 使用pinia中的資料
+const categoryStore = useCategoryStore()
 </script>
 
 <template>
@@ -15,7 +34,10 @@ const { y } = useScroll(window)
         <li class="home">
           <RouterLink to="/">首页</RouterLink>
         </li>
-        <li>
+        <li class="home" v-for="item in categoryStore.categoryList" :key="item.id">
+            <RouterLink to="/">{{ item.name }}</RouterLink>
+        </li>
+        <!-- <li>
           <RouterLink to="/">居家</RouterLink>
         </li>
         <li>
@@ -41,7 +63,7 @@ const { y } = useScroll(window)
         </li>
         <li>
           <RouterLink to="/">杂项</RouterLink>
-        </li>
+        </li> -->
       </ul>
 
       <div class="right">
