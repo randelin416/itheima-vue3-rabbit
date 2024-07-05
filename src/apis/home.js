@@ -18,3 +18,14 @@ export function findNewAPI(){
         url: '/home/new'
     })
 }
+
+/**
+ * @description: 獲取人氣推薦
+ * @param {*}
+ * @return {*}
+ */
+export function findHotAPI(){
+    return httpInstance({
+        url: '/home/hot'
+    })
+}
